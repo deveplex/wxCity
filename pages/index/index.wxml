@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="">
+  <view class="top">
+    <swiper indicator-dots="{{topImageCarousel.indicatorDots}}" autoplay="{{topImageCarousel.autoplay}}" interval="{{topImageCarousel.interval}}" duration="{{topImageCarousel.duration}}">
+      <block wx:for="{{topImageCarousel.imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" style='width:100%' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="page">
+    <view class="page__hd" style='display:none;'>
+        <view class="page__title">Grid</view>
+        <!--view class="page__desc">九宫格</view-->
+    </view>
+    <view class="page__bd">
+        <view class="weui-grids">
+            <block wx:for="{{grids}}">
+                <view class="weui-grid" hover-class="weui-grid_active" wx:if="{{item.title!=''}}" data-url="{{item.url}}" bindtap='gotoPage'>
+                    <image class="weui-grid__icon" src="{{item.image}}" />
+                    <view class="weui-grid__label">{{item.title}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
+</view>

@@ -1,0 +1,38 @@
+<view class="" style='height:100vh;overflow:hidden'>
+      <view class="map-search-bar">
+        <view class="weui-search-bar" style='padding:15px;background-color:#2f9aff;display:none;'>
+          <view class="weui-search-bar__form" data-url="{{urlSet.mapSearchUrl}}" bindtap='goMapSearch'>
+            <!--  -->
+            <view class="weui-search-bar__box" style='padding-left:5px;'>
+              <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" maxlength="100" confirm-type="search" bindinput="bindKeyInput" focus="{{inputShowed}}" auto-focus="true" disabled="true" />
+            </view>
+            <icon class="weui-icon-search_in-box1 " style='position:absolute;top:7px;right:7px;' type="search" size="14"></icon>
+          </view>
+        </view>
+
+        <view class="weui-search-bar" style='padding:15px;background-color:#2f9aff;'>
+          <view class="weui-search-bar__form" style='display:table;width:100%;'>
+            <view class="weui-search-bar__box" style='display:table-cell;padding-left:5px;padding-right:5px;vertical-align: middle;'>
+              <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" maxlength="100" confirm-type="search" bindinput="bindKeyInput" bindconfirm="clickSearch" bindfocus="clickSearchView" bindblur="loseInputBlur" focus="true" auto-focus="true"
+              />
+            </view>
+            <view style='display:table-cell;vertical-align: middle;border-left:1px solid #ddd'>
+              <button style='height:28px;font-size:inherit;line-height:100%;border-width:0;vertical-align:middle;background-color: #fff;padding-top:4px;' plain='true' bindtap="clickSearch">
+                <icon class="weui-icon-search_in-box1 " style='line-height:100%;' type="search" size="14"></icon>
+              </button>
+            </view>
+          </view>
+        </view>
+      </view>
+
+  <!-- map -->
+  <view class='view-map' style="height:100%">
+    <map id="map" longitude="{{mapLongitude}}" latitude="{{mapLatitude}}" bindcontroltap="controltap" markers="{{markers}}" circles="{{circles}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 100%;">
+      <cover-image src='/images/location.png' style='width:40px;height:40px;margin:59% 49%;text-align:center;vertical-align:middle;'></cover-image>
+      <cover-view class="map-foot" wx:if="{{showmark}}">
+        <cover-view class="mapName">{{textData.name}}</cover-view>
+        <cover-view class="mapDesc">{{textData.desc}}</cover-view>
+      </cover-view>
+    </map>
+  </view>
+</view>

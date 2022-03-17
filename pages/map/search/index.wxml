@@ -1,0 +1,29 @@
+<view class="" style='height:100vh;overflow:hidden'>
+  <view class="weui-search-bar" style='padding:15px;background-color:#2f9aff;'>
+    <view class="weui-search-bar__form" style='display:table;width:100%;'>
+      <view class="weui-search-bar__box" style='display:table-cell;padding-left:5px;padding-right:5px;vertical-align: middle;'>
+        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" maxlength="100" confirm-type="search" bindinput="bindKeyInput" bindconfirm="clickSearch" bindfocus="clickSearchView" bindblur="loseInputBlur" focus="true" auto-focus="true"/>
+      </view>
+      <view style='display:table-cell;vertical-align: middle;border-left:1px solid #ddd'>
+        <button style='height:28px;font-size:inherit;line-height:100%;border-width:0;vertical-align:middle;background-color: #fff;padding-top:4px;' plain='true' bindtap="clickSearch">
+          <icon class="weui-icon-search_in-box1 " style='line-height:100%;' type="search" size="14"></icon>
+        </button>
+      </view>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <scroll-view class="addressListView">
+    <block wx:for="{{tips}}">
+      <view class="addressCell" bindtap="didSelectCell" data-index="{{index}}">
+
+        <view class="address">
+          <text>{{item.city + (item.district == undefined?'':item.district)}}</text>
+        </view>
+
+        <view class="detail">
+          <text>{{item.title}}</text>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
